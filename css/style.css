@@ -1,0 +1,307 @@
+/* Jack Hilliard — personal site
+   Classic early-2000s academic homepage: serif body, Verdana chrome,
+   ruled borders, real blue links. No animation. */
+
+:root {
+  --paper: #fffef9;
+  --desk: #ece8da;
+  --ink: #1a1a1a;
+  --muted: #555;
+  --rule: #9a9684;
+  --rule-light: #d6d2c0;
+  --navy: #1f3a6e;
+  --panel: #f3f0e3;
+  --link: #0000cc;
+  --visited: #551a8b;
+  --todo: #fff3a6;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--desk); }
+
+body {
+  margin: 0;
+  padding: 16px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+a { color: var(--link); }
+a:visited { color: var(--visited); }
+a:hover { color: #cc0000; }
+
+#page {
+  max-width: 920px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+
+/* ---------- header ---------- */
+
+#masthead {
+  padding: 18px 22px 14px;
+  border-bottom: 3px double var(--rule);
+}
+#masthead h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  color: var(--navy);
+}
+#masthead h1 a { color: inherit; text-decoration: none; }
+#masthead p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ---------- layout ---------- */
+
+#columns {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+}
+
+#sidebar {
+  padding: 16px 14px;
+  border-right: 1px solid var(--rule-light);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+#content {
+  padding: 6px 24px 24px;
+  min-width: 0;
+}
+
+/* ---------- sidebar boxes ---------- */
+
+.box {
+  margin: 0 0 14px;
+  border: 1px solid var(--rule);
+  background: var(--panel);
+}
+.box h2 {
+  margin: 0;
+  padding: 3px 8px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.box ul {
+  list-style: none;
+  margin: 0;
+  padding: 6px 8px;
+}
+.box li { padding: 2px 0; }
+.box li::before { content: "\00BB\00A0"; color: var(--muted); }
+.box li.here a {
+  color: var(--ink);
+  font-weight: bold;
+  text-decoration: none;
+}
+.box p { margin: 0; padding: 6px 8px; }
+
+/* ---------- content ---------- */
+
+h2 {
+  margin: 22px 0 8px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 21px;
+  font-weight: normal;
+  color: var(--navy);
+}
+h3 {
+  margin: 18px 0 4px;
+  font-size: 17px;
+}
+p { margin: 0 0 12px; }
+
+.portrait {
+  float: right;
+  width: 160px;
+  margin: 4px 0 10px 18px;
+  padding: 4px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10px;
+  text-align: center;
+  color: var(--muted);
+}
+.portrait img, .portrait .ph {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  margin-bottom: 3px;
+}
+.portrait .ph {
+  background: var(--panel);
+  border: 1px dashed var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear { clear: both; }
+
+/* news: date + item */
+dl.news { margin: 0; }
+dl.news dt {
+  float: left;
+  clear: left;
+  width: 86px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 11px;
+  line-height: 24px;
+  color: var(--muted);
+}
+dl.news dd { margin: 0 0 6px 92px; }
+
+/* publications */
+ol.pubs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ol.pubs li {
+  position: relative;
+  margin: 0 0 12px;
+  padding-left: 40px;
+}
+ol.pubs .num {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px;
+  line-height: 25px;
+  color: var(--muted);
+}
+.pub-title { font-weight: bold; }
+.pub-venue { font-style: italic; }
+.pub-links, .tags {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 11px;
+}
+.pub-links a, .pub-links summary { margin-right: 4px; }
+.pub-links details { display: inline; }
+.pub-links summary {
+  display: inline;
+  color: var(--link);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.pub-links summary::-webkit-details-marker { display: none; }
+.pub-links pre {
+  margin: 6px 0 0;
+  padding: 8px;
+  border: 1px solid var(--rule-light);
+  background: var(--panel);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  overflow-x: auto;
+}
+
+/* projects */
+.project {
+  margin: 0 0 16px;
+  padding: 12px;
+  border: 1px solid var(--rule-light);
+  background: #fff;
+  overflow: hidden;
+}
+.project h3 { margin-top: 0; }
+.project .thumb {
+  float: left;
+  width: 150px;
+  height: 110px;
+  margin: 2px 14px 6px 0;
+  border: 1px solid var(--rule);
+  background: var(--panel);
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10px;
+  color: var(--muted);
+}
+.project p:last-child { margin-bottom: 0; }
+
+/* contact table */
+table.plain {
+  border-collapse: collapse;
+  margin: 0 0 12px;
+}
+table.plain th, table.plain td {
+  padding: 5px 12px 5px 0;
+  border-bottom: 1px dotted var(--rule-light);
+  text-align: left;
+  vertical-align: top;
+}
+table.plain th {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 25px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+table.plain td { overflow-wrap: anywhere; }
+
+/* placeholder text still to be filled in */
+.todo { background: var(--todo); }
+
+/* ---------- footer ---------- */
+
+#footer {
+  padding: 8px 22px;
+  border-top: 3px double var(--rule);
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 700px) {
+  body { padding: 0; }
+  #page { border-width: 0 0 1px; }
+  #masthead { padding: 14px 16px 10px; }
+  #masthead h1 { font-size: 25px; }
+  #columns { display: block; }
+  #sidebar {
+    padding: 10px 16px 0;
+    border-right: 0;
+  }
+  #sidebar .box.extra { display: none; }
+  .box ul { display: flex; flex-wrap: wrap; gap: 0 14px; }
+  #content { padding: 0 16px 20px; }
+  .portrait { width: 120px; margin-left: 12px; }
+  .project .thumb { width: 110px; height: 82px; }
+  #footer { padding: 8px 16px; }
+}
+
+@media print {
+  html, body { background: #fff; padding: 0; }
+  #page { border: 0; max-width: none; }
+  #sidebar { display: none; }
+  #columns { display: block; }
+}
