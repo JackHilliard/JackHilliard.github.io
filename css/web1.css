@@ -72,11 +72,27 @@ a { color: #0000ee; }
   color: #fff;
   white-space: nowrap;
 }
-.box.extra li a:visited, .box.extra li a:hover { color: #fff; }
-.box.extra li:nth-child(1) a { background: #5d8a00; }
-.box.extra li:nth-child(2) a { background: #2a56c6; }
-.box.extra li:nth-child(3) a { background: #222; }
-.box.extra li:nth-child(4) a { background: #0a5aa8; }
+.box.extra li a, .box.extra li a:visited, .box.extra li a:hover { color: var(--badge-ink, #fff); }
+.box.extra li a { background: var(--badge, #3b3357); }
+.box.extra li a:hover { filter: brightness(1.12); }
+/* known services: logo mark in a white cell on the left, name on the brand colour */
+.box.extra li a[href*="orcid.org"] { --badge: #a6ce39; --badge-ink: #1b1b1b; --logo: var(--logo-orcid); }
+.box.extra li a[href*="scholar.google"] { --badge: #4285f4; --logo: var(--logo-scholar); }
+.box.extra li a[href*="github.com"] { --badge: #24292f; --logo: var(--logo-github); }
+.box.extra li a[href*="linkedin.com"] { --badge: #0a66c2; --logo: var(--logo-linkedin); }
+.box.extra li a[href*="orcid.org"],
+.box.extra li a[href*="scholar.google"],
+.box.extra li a[href*="github.com"],
+.box.extra li a[href*="linkedin.com"] {
+  padding-left: 28px;
+  text-align: center;
+  background:
+    var(--logo) 4px center / 20px 20px no-repeat,
+    linear-gradient(90deg, #fff 0 28px, var(--badge) 28px);
+}
+/* "Google Scholar" is too long for the badge: show "Scholar", keep the full link name */
+.box.extra li a[href*="scholar.google"] { font-size: 0; letter-spacing: 0; }
+.box.extra li a[href*="scholar.google"]::after { content: "Scholar"; font-size: 10px; }
 
 #content h2 {
   border-bottom: 2px groove #c0c0c0;
