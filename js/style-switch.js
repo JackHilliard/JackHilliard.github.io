@@ -4,9 +4,10 @@
 (function () {
   var THEMES = { classic: null, web1: "css/web1.css", portal: "css/portal.css", neo: "css/neo.css" };
   var LABELS = { classic: "classic", web1: "web 1.0", portal: "portal", neo: "neo" };
-  var current = "classic";
-  try { current = localStorage.getItem("theme") || "classic"; } catch (e) {}
-  if (!(current in THEMES)) current = "classic";
+  var DEFAULT = "neo";
+  var current = DEFAULT;
+  try { current = localStorage.getItem("theme") || DEFAULT; } catch (e) {}
+  if (!(current in THEMES)) current = DEFAULT;
 
   if (THEMES[current]) {
     var link = document.createElement("link");

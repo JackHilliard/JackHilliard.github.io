@@ -359,6 +359,9 @@ pre.demo-eq sub, pre.demo-eq sup { line-height: 0; }
 /* placeholder text still to be filled in */
 .todo { background: var(--todo); }
 
+/* deliberate highlighter emphasis (same look as .todo, but meant to stay) */
+.hl { background: var(--todo); }
+
 /* ---------- footer ---------- */
 
 #footer {
@@ -402,3 +405,6 @@ pre.demo-eq sub, pre.demo-eq sup { line-height: 0; }
   #sidebar { display: none; }
   #columns { display: block; }
 }
+
+/* justified body text (About section) */
+.justify { text-align: justify; hyphens: auto; }
