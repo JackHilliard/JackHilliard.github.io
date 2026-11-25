@@ -1,9 +1,9 @@
-/* TEMPORARY: lets you flip between the candidate themes while choosing.
-   Once a theme is picked, delete this file, its <script> tag in each page,
-   and the unused theme stylesheets. */
+/* Style switcher: the site ships two looks, neo (default) and web 1.0.
+   The choice is remembered per browser; a footer link flips between them.
+   Without JavaScript the page shows the plain base stylesheet. */
 (function () {
-  var THEMES = { classic: null, web1: "css/web1.css", portal: "css/portal.css", neo: "css/neo.css" };
-  var LABELS = { classic: "classic", web1: "web 1.0", portal: "portal", neo: "neo" };
+  var THEMES = { neo: "css/neo.css", web1: "css/web1.css" };
+  var LABELS = { neo: "neo", web1: "web 1.0" };
   var DEFAULT = "neo";
   var current = DEFAULT;
   try { current = localStorage.getItem("theme") || DEFAULT; } catch (e) {}
