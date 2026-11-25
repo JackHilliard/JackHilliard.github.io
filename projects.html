@@ -44,14 +44,10 @@
       interactive demo, it is linked from its entry.</p>
 
       <!-- One .project block per project. Each demo is its own page at the site root. -->
-      <!-- DRAFT descriptions written from the paper titles only: please
-           rewrite, then remove the "todo" spans to clear the highlight. -->
       <div class="project">
         <a href="images/pubs/shedding-light.jpg"><img class="thumb" src="images/pubs/shedding-light.jpg" alt="Reference and generated light probes compared by their estimated light direction"></a>
         <h3>Shedding Light</h3>
-        <p><span class="todo">A benchmark for evaluating how well generative image models
-        understand lighting. Add two or three sentences on what is measured and the main
-        findings.</span></p>
+        <p>Do generative image models truly understand lighting? We benchmark 16 models by asking them to inpaint light probes into real photographs, then measure how accurately the generated probes reproduce the ground-truth illumination in direction, colour, and radiance distribution.</p>
         <p class="tags"><a href="https://doi.org/10.1145/3842579">[paper]</a>
         <a href="https://lvsn.github.io/SheddingLight/">[project page]</a>
         <a href="https://github.com/JustineGiroux/SheddingLightBenchmark">[code]</a>
@@ -62,8 +58,7 @@
       <div class="project">
         <a href="images/pubs/hdr-latent-diffusion.jpg"><img class="thumb" src="images/pubs/hdr-latent-diffusion.jpg" alt="Objects rendered under estimated indoor and outdoor environment maps"></a>
         <h3>HDR Environment Maps with Latent Diffusion</h3>
-        <p><span class="todo">HDR environment map estimation using latent diffusion models.
-        Add two or three sentences on the approach and results.</span></p>
+        <p>A novel approach to HDR environment map generation that leverages the Latent Diffusion Model (LDM) for higher quality generation and an exploration of adapting the latent Vision-Transformer architecture to Equirectangular Panoramas (ERP). We remove the border seam artefact by proposing an ERP convolutional padding in the latent autoencoder. Additionally, we investigate whether adapting the diffusion network architecture to the ERP format can further improve the quality and accuracy of the estimated environment map by proposing a panoramically-adapted Diffusion Transformer architecture, PanoDiT.</p>
         <p class="tags"><a href="https://arxiv.org/abs/2507.21261">[paper]</a>
         arXiv preprint, 2025 &middot; [demo &ndash; coming soon]</p>
       </div>
@@ -71,18 +66,16 @@
       <div class="project">
         <a href="images/pubs/360u-former.jpg"><img class="thumb" src="images/pubs/360u-former.jpg" alt="Objects rendered with 360U-Former and ground-truth environment maps, beside the environment maps themselves"></a>
         <h3>360U-Former</h3>
-        <p><span class="todo">HDR illumination estimation using vision transformers adapted
-        to 360&deg; panoramas. Add two or three sentences on the approach and
-        results.</span></p>
+        <p>We explore how tailoring the neural network architecture to the Equirectangular Panorama (ERP) format, utilised in image-based lighting, can improve the generation quality by preventing the generation of the seam at the side borders and textures or objects that are warped at the poles. We propose a novel architecture, 360U-Former, based on a U-Net style Vision-Transformer which leverages the work of PanoSWIN, an adapted shifted window attention tailored to the ERP format.</p>
         <p class="tags"><a href="https://doi.org/10.1007/978-3-031-91838-4_26">[paper]</a>
-        ECCV 2024 Workshops &middot; [demo &ndash; coming soon]</p>
+        <a href="https://arxiv.org/abs/2410.13566">[arXiv]</a>
+        &middot;         ECCV 2024 Workshops &middot; [demo &ndash; coming soon]</p>
       </div>
 
       <div class="project">
         <a href="images/pubs/hdr-outpainting.jpg"><img class="thumb" src="images/pubs/hdr-outpainting.jpg" alt="A limited field-of-view image, its placement in a panorama, and the outpainted panorama"></a>
         <h3>HDR Illumination Outpainting</h3>
-        <p><span class="todo">A two-stage GAN that outpaints an HDR illumination map from a
-        partial view. Add two or three sentences on the approach and results.</span></p>
+        <p>A method for single-view illumination estimation of indoor scenes that incorporates state-of-the-art outpainting methods: multi-stage GANs, an inside-out manipulation of the image. The use of these methods used in GAN outpainting aims to improve the generation quality and remove the artefacts introduced by using equirectangular panoramas in traditional convolutional networks.</p>
         <p class="tags"><a href="https://doi.org/10.1145/3626495.3626510">[paper]</a>
         CVMP 2023 &middot; [demo &ndash; coming soon]</p>
       </div>

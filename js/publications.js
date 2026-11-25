@@ -90,7 +90,8 @@ var PUBLICATIONS = [
     figureAlt: "Objects rendered with 360U-Former and ground-truth environment maps, beside the environment maps themselves",
     selected: true,
     links: {
-      doi: "https://doi.org/10.1007/978-3-031-91838-4_26"
+      doi: "https://doi.org/10.1007/978-3-031-91838-4_26",
+      arxiv: "https://arxiv.org/abs/2410.13566"
     },
     bibtex:
       "@inproceedings{hilliard2025360uformer,\n" +
