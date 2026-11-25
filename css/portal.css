@@ -1,0 +1,71 @@
+/* "Boxed portal" theme — loaded on top of style.css.
+   Circa-2003 portal: sans-serif, blue gradient title bars, orange accent. */
+
+html { background: #d9e2f0; }
+
+body {
+  font-family: Tahoma, Verdana, Geneva, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+a { color: #1a4fb0; }
+
+#page {
+  background: #fff;
+  border: 1px solid #6f8fc4;
+}
+
+#masthead {
+  background: linear-gradient(#4a7bd0, #1f4592);
+  border-bottom: 3px solid #f7a11a;
+}
+#masthead h1 {
+  color: #fff;
+  font-family: "Trebuchet MS", Tahoma, sans-serif;
+  font-size: 27px;
+  font-weight: bold;
+  letter-spacing: 0;
+}
+#masthead p { color: #dbe6fa; font-style: normal; }
+
+#sidebar {
+  background: #eef2f9;
+  border-right: 1px solid #b8c7e0;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.box { background: #fff; border: 1px solid #6f8fc4; }
+.box h2 {
+  background: linear-gradient(#7fa3de, #3f6fc0);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+}
+.box li::before { content: "\25AA\00A0"; color: #f7a11a; }
+
+#content h2 {
+  margin-top: 18px;
+  padding: 4px 9px;
+  background: linear-gradient(#f6f9fd, #d3dff3);
+  border: 1px solid #9db3d8;
+  color: #1f4592;
+  font-size: 13px;
+  font-weight: bold;
+}
+h3 { font-size: 14px; }
+
+dl.news dt, ol.pubs .num, table.plain th { line-height: 21px; }
+.pub-links, .tags { font-family: inherit; }
+
+.portrait { border-color: #9db3d8; }
+.project { border-color: #b8c7e0; background: #f8fafd; }
+.pub-links pre { border-color: #b8c7e0; background: #f8fafd; }
+table.plain th, dl.news dt { font-family: inherit; }
+
+#footer {
+  background: #eef2f9;
+  border-top: 1px solid #6f8fc4;
+  font-family: inherit;
+}

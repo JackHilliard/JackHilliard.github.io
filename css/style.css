@@ -142,6 +142,7 @@ p { margin: 0 0 12px; }
 .portrait img, .portrait .ph {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   margin-bottom: 3px;
@@ -189,6 +190,54 @@ ol.pubs .num {
   line-height: 25px;
   color: var(--muted);
 }
+/* figure thumbnails: every figure sits whole inside the same-sized frame,
+   in a column to the left of the entry text */
+ol.pubs li {
+  min-height: 108px;
+  padding-left: 224px;
+}
+.pub-fig {
+  position: absolute;
+  left: 40px;
+  top: 4px;
+  line-height: 0;
+}
+.pub-fig img, .project img.thumb {
+  display: block;
+  width: 170px;
+  height: 100px;
+  object-fit: contain;
+  border: 1px solid var(--rule);
+  background: #fff;
+}
+.pub-fig img, .project img.thumb {
+  /* no frame in any theme; figure aligned with the top of the entry */
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  object-position: center center;
+}
+/* centre each figure vertically against its entry */
+.pub-fig {
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.project:has(img.thumb) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 14px;
+}
+.project:has(img.thumb) > * { grid-column: 2; }
+.project:has(img.thumb) > a:first-child {
+  grid-column: 1;
+  grid-row: 1 / span 10;
+  align-self: center;
+  line-height: 0;
+}
+.project img.thumb { float: none; margin: 0; }
 .pub-title { font-weight: bold; }
 .pub-venue { font-style: italic; }
 .pub-links, .tags {
@@ -262,6 +311,51 @@ table.plain th {
 }
 table.plain td { overflow-wrap: anywhere; }
 
+/* demos */
+.demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 22px;
+  align-items: flex-start;
+  margin: 0 0 14px;
+}
+.demo-stage {
+  padding: 14px;
+  background: #0b0b10;
+  border: 1px solid var(--rule);
+  line-height: 0;
+}
+.demo-stage canvas {
+  display: block;
+  width: 256px;
+  height: 256px;
+  max-width: 100%;
+}
+.demo-panel { flex: 1 1 260px; min-width: 0; }
+.demo-panel td { font-family: "Courier New", Courier, monospace; white-space: nowrap; }
+.demo-controls {
+  display: grid;
+  grid-template-columns: auto minmax(60px, 1fr) 3.2em;
+  gap: 6px 10px;
+  align-items: center;
+  margin: 0 0 12px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 11px;
+}
+.demo-controls input { width: 100%; min-width: 0; margin: 0; }
+.demo-controls span { font-family: "Courier New", Courier, monospace; font-size: 13px; }
+pre.demo-eq {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--rule-light);
+  background: var(--panel);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-x: auto;
+}
+pre.demo-eq sub, pre.demo-eq sup { line-height: 0; }
+
 /* placeholder text still to be filled in */
 .todo { background: var(--todo); }
 
@@ -296,6 +390,9 @@ table.plain td { overflow-wrap: anywhere; }
   #content { padding: 0 16px 20px; }
   .portrait { width: 120px; margin-left: 12px; }
   .project .thumb { width: 110px; height: 82px; }
+  ol.pubs li { min-height: 0; padding-left: 40px; }
+  .pub-fig { position: static; display: block; margin: 0 0 6px; }
+  .pub-fig img, .project img.thumb { width: 136px; height: 80px; }
   #footer { padding: 8px 16px; }
 }
 

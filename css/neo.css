@@ -1,0 +1,219 @@
+/* "Neo" theme — loaded on top of style.css.
+   Neocities-flavoured: night-sky desk, sunset banner, pixel headings,
+   chunky outlined boxes with hard drop shadows. No ambient animation;
+   the only movement is buttons pressing in on hover. */
+
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+:root {
+  --neo-ink: #231942;
+  --neo-paper: #fffaf0;
+  --neo-pink: #ff7ab6;
+  --neo-teal: #5fd4c4;
+  --neo-sun: #ffd166;
+  --neo-purple: #5a2bd6;
+  --neo-pixel: "VT323", "Courier New", Courier, monospace;
+}
+
+html {
+  background-color: #16132e;
+  background-image:
+    radial-gradient(#fff 1px, transparent 1.6px),
+    radial-gradient(#ffd166 1px, transparent 1.6px),
+    radial-gradient(rgba(255,255,255,.45) 1px, transparent 1.6px);
+  background-size: 140px 140px, 190px 190px, 90px 90px;
+  background-position: 10px 20px, 70px 110px, 40px 60px;
+}
+
+body { color: var(--neo-ink); }
+::selection { background: var(--neo-pink); color: #fff; }
+
+a { color: var(--neo-purple); }
+a:visited { color: #8a3aa8; }
+#content a:hover { background: var(--neo-sun); color: var(--neo-ink); }
+
+#page { background: transparent; border: 0; }
+
+/* ---------- banner: sunset sky with a low sun ---------- */
+
+#masthead {
+  margin-bottom: 18px;
+  padding: 26px 24px 30px;
+  border: 2px solid var(--neo-ink);
+  box-shadow: 6px 6px 0 var(--neo-pink);
+  background:
+    radial-gradient(circle at 84% 108%, #fff6c9 0 36px, #ffd166 37px 58px, rgba(255,209,102,.35) 59px 82px, transparent 83px),
+    radial-gradient(#fff 1px, transparent 1.6px) 30px 14px / 110px 70px,
+    radial-gradient(rgba(255,255,255,.7) 1px, transparent 1.6px) 80px 40px / 150px 90px,
+    linear-gradient(#2b1b5a 0%, #6a2c8f 38%, #d6457f 68%, #ff9e5e 90%, #ffd166 100%);
+}
+#masthead h1 {
+  color: #fff;
+  font-family: var(--neo-pixel);
+  font-size: 58px;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-shadow: 3px 3px 0 var(--neo-ink);
+}
+#masthead p {
+  margin-top: 6px;
+  color: #fff;
+  font-style: normal;
+  text-shadow: 1px 1px 0 var(--neo-ink);
+}
+
+/* ---------- layout ---------- */
+
+#columns { gap: 20px; }
+#sidebar { padding: 0; border: 0; font-family: var(--neo-pixel); font-size: 18px; line-height: 1.2; }
+#content {
+  padding: 4px 24px 22px;
+  background: var(--neo-paper);
+  border: 2px solid var(--neo-ink);
+  box-shadow: 6px 6px 0 var(--neo-teal);
+}
+
+/* ---------- sidebar windows ---------- */
+
+.box {
+  margin-bottom: 20px;
+  background: var(--neo-paper);
+  border: 2px solid var(--neo-ink);
+  box-shadow: 5px 5px 0 var(--neo-sun);
+}
+.box h2 {
+  padding: 3px 8px;
+  background: var(--neo-pink);
+  border-bottom: 2px solid var(--neo-ink);
+  color: var(--neo-ink);
+  font-family: var(--neo-pixel);
+  font-size: 19px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+}
+.box h2::before { content: "\2726  "; }
+.box.extra h2 { background: var(--neo-teal); }
+.box ul { padding: 8px 10px 10px; }
+.box li { padding: 0; }
+.box li::before { content: none; }
+.box li a {
+  display: block;
+  margin: 6px 0;
+  padding: 3px 8px;
+  background: #fff;
+  border: 2px solid var(--neo-ink);
+  box-shadow: 3px 3px 0 var(--neo-ink);
+  color: var(--neo-ink);
+  text-decoration: none;
+}
+.box li a:visited { color: var(--neo-ink); }
+.box li a:hover {
+  background: var(--neo-sun);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--neo-ink);
+}
+.box li.here a { background: var(--neo-sun); font-weight: normal; }
+.box li.here a::after { content: " \25C2"; }
+
+/* 88x31 badges for the outbound links */
+.box.extra li a {
+  width: 88px;
+  height: 31px;
+  margin: 8px auto;
+  padding: 0;
+  color: #fff;
+  font-size: 16px;
+  line-height: 27px;
+  text-align: center;
+  white-space: nowrap;
+}
+.box.extra li a:visited { color: #fff; }
+.box.extra li a:hover { color: var(--neo-ink); }
+.box.extra li:nth-child(1) a { background: #5d8a00; }
+.box.extra li:nth-child(2) a { background: #2a56c6; font-size: 14px; letter-spacing: -0.5px; }
+.box.extra li:nth-child(3) a { background: #222; }
+.box.extra li:nth-child(4) a { background: #0a5aa8; }
+.box.extra li a:hover { background: var(--neo-sun); }
+
+/* ---------- content ---------- */
+
+#content h2 {
+  border-bottom: 2px dashed var(--neo-pink);
+  color: var(--neo-ink);
+  font-family: var(--neo-pixel);
+  font-size: 30px;
+  line-height: 1.1;
+}
+#content h2::before { content: "\2726  "; color: #ff9e5e; }
+h3 { font-family: var(--neo-pixel); font-size: 24px; font-weight: normal; line-height: 1.1; }
+
+#content ul li::marker { content: "\2727  "; color: var(--neo-pink); }
+
+.portrait {
+  padding: 6px 6px 4px;
+  background: #fff;
+  border: 2px solid var(--neo-ink);
+  box-shadow: 4px 4px 0 var(--neo-pink);
+  transform: rotate(2deg);
+  font-family: var(--neo-pixel);
+  font-size: 16px;
+  color: var(--neo-ink);
+}
+
+dl.news dt {
+  width: 78px;
+  margin-top: 2px;
+  padding: 0 5px;
+  background: var(--neo-sun);
+  border: 1px solid var(--neo-ink);
+  color: var(--neo-ink);
+  font-family: var(--neo-pixel);
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+
+ol.pubs .num { color: #d6457f; font-family: var(--neo-pixel); font-size: 19px; }
+.pub-links a, .pub-links summary {
+  padding: 0 4px;
+  background: #ece5ff;
+  border: 1px solid var(--neo-ink);
+  color: var(--neo-ink);
+  text-decoration: none;
+}
+.pub-links pre { border: 2px dashed var(--neo-teal); background: #fff; }
+
+.project {
+  background: #fff;
+  border: 2px dashed var(--neo-teal);
+}
+.project .thumb {
+  border: 2px solid var(--neo-ink);
+  box-shadow: 3px 3px 0 var(--neo-sun);
+  transform: rotate(-2deg);
+}
+
+table.plain th { font-family: var(--neo-pixel); font-size: 18px; font-weight: normal; color: #d6457f; }
+
+/* ---------- footer ---------- */
+
+#footer {
+  justify-content: center;
+  gap: 4px 24px;
+  padding: 18px 10px 6px;
+  border: 0;
+  color: #cfc8ff;
+  font-family: var(--neo-pixel);
+  font-size: 17px;
+}
+#footer a { color: var(--neo-sun); }
+
+@media (max-width: 700px) {
+  body { padding: 10px 12px 10px 10px; }
+  #masthead { padding: 20px 16px 24px; }
+  #masthead h1 { font-size: 44px; }
+  #sidebar { padding: 0; }
+  .box ul { gap: 0 10px; }
+  #content { padding: 2px 16px 18px; }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shedding Light demo — Jack Hilliard</title>
+<meta name="description" content="Interactive demo: a sphere lit by a single light that follows your pointer, using the renderer from the Shedding Light benchmark.">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/style-switch.js"></script>
+</head>
+<body>
+<div id="page">
+
+  <div id="masthead">
+    <h1><a href="index.html">Jack Hilliard</a></h1>
+    <p>Postdoctoral Researcher, LVSN, Universit&eacute; Laval</p>
+  </div>
+
+  <div id="columns">
+    <div id="sidebar">
+      <div class="box">
+        <h2>Navigation</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li class="here"><a href="projects.html">Projects &amp; Demos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="box extra">
+        <h2>This project</h2>
+        <ul>
+          <li><a href="https://doi.org/10.1145/3842579">Paper</a></li>
+          <li><a href="https://lvsn.github.io/SheddingLight/">Project page</a></li>
+          <li><a href="https://github.com/JustineGiroux/SheddingLightBenchmark">Code</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="content">
+      <h2>Shedding Light: move the light</h2>
+      <p>Move your pointer around the page (or tap on a touch screen). The pointer is a
+      single light source, and the sphere below is re-rendered for the direction from the
+      sphere to that light.</p>
+
+      <div class="demo">
+        <div class="demo-stage">
+          <canvas id="sphere" width="256" height="256"
+            aria-label="A grey sphere lit by one light that follows the pointer"></canvas>
+        </div>
+
+        <div class="demo-panel">
+          <table class="plain">
+            <tr><th>Angle from view</th><td id="out-angle">&ndash;</td></tr>
+            <tr><th>Azimuth</th><td id="out-azimuth">&ndash;</td></tr>
+            <tr><th>Direction (x, y, z)</th><td id="out-dir">&ndash;</td></tr>
+          </table>
+
+          <div class="demo-controls">
+            <label for="in-height">Light height above page</label>
+            <input id="in-height" type="range" min="-1" max="3" step="0.05">
+            <span id="out-height"></span>
+
+            <label for="in-roughness">Roughness</label>
+            <input id="in-roughness" type="range" min="0.05" max="1" step="0.01">
+            <span id="out-roughness"></span>
+
+            <label for="in-metallic">Metallic</label>
+            <input id="in-metallic" type="range" min="0" max="1" step="0.01">
+            <span id="out-metallic"></span>
+          </div>
+          <p><button id="reset" type="button">Reset</button></p>
+        </div>
+      </div>
+      <noscript><p>This demo needs JavaScript.</p></noscript>
+
+      <h2>Reading the numbers</h2>
+      <ul>
+        <li><b>Angle from view</b> is the angle between the light direction and
+        the direction towards the viewer: 0&deg; means the light is directly in front of
+        the sphere, 90&deg; means it is level with the page, and more than 90&deg; means it
+        is behind the sphere.</li>
+        <li><b>Azimuth</b> is the light's direction around the sphere as seen on screen:
+        0&deg; is to the right, 90&deg; is straight up.</li>
+        <li><b>Direction</b> is the unit vector from the sphere to the light, with
+        x to the right, y up and z out of the page towards you.</li>
+        <li><b>Light height</b> is how far the light floats above the page, in sphere
+        radii. Negative values put it behind the page.</li>
+      </ul>
+
+      <h2>How it is rendered</h2>
+      <p>The shading is a JavaScript port of <code>CTSchlickGGX_render_sphere</code> from
+      the <a href="https://github.com/JustineGiroux/SheddingLightBenchmark">Shedding Light
+      benchmark code</a>, where it is the renderer used to estimate light direction from a
+      sphere. It is a Cook-Torrance model with a GGX distribution and Schlick's Fresnel
+      approximation. For each pixel with normal <i>n</i>, light direction <i>l</i>, view
+      direction <i>v</i>&nbsp;=&nbsp;(0,&nbsp;0,&nbsp;1) and half vector <i>h</i>:</p>
+
+      <pre class="demo-eq">colour = ambient &middot; albedo
+       + ( k<sub>D</sub> &middot; albedo / &pi;  +  D &middot; G &middot; F ) &middot; intensity &middot; (n&middot;l)
+
+k<sub>D</sub> = (1 &minus; F<sub>v</sub>)(1 &minus; metallic)     F<sub>v</sub> = F<sub>0</sub> + (1 &minus; F<sub>0</sub>)(1 &minus; n&middot;v)<sup>5</sup>
+D  = &alpha;&sup2; / ( &pi; ((n&middot;h)&sup2;(&alpha;&sup2; &minus; 1) + 1)&sup2; )     &alpha;&sup2; = roughness<sup>4</sup>
+G  = 1 / ( g(n&middot;l) &middot; g(n&middot;v) )         g(x) = x + &radic;(x&sup2;(1 &minus; &alpha;&sup2;) + &alpha;&sup2;)
+F  = F<sub>0</sub> + (1 &minus; F<sub>0</sub>)(1 &minus; n&middot;h)<sup>5</sup></pre>
+
+      <p>Albedo, ambient, F<sub>0</sub> and light intensity are fixed at the starting
+      values used in the benchmark code; the roughness and metallic sliders start at those
+      values too. The only addition is a gamma curve so the linear result displays
+      correctly on screen.</p>
+
+      <p><a href="projects.html">&laquo; Back to projects</a></p>
+    </div>
+  </div>
+
+  <div id="footer">
+    <span>&copy; Jack Hilliard</span>
+    <span>Last updated: <span id="updated">2026</span></span>
+  </div>
+
+</div>
+<script src="js/demo-shedding-light.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

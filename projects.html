@@ -6,6 +6,7 @@
 <title>Projects &amp; Demos — Jack Hilliard</title>
 <meta name="description" content="Research projects and interactive demos by Jack Hilliard.">
 <link rel="stylesheet" href="css/style.css">
+<script src="js/style-switch.js"></script>
 </head>
 <body>
 <div id="page">
@@ -42,22 +43,33 @@
       <p>A summary of the main things I have worked on. Where a project has an
       interactive demo, it is linked from its entry.</p>
 
-      <!-- One .project block per project. Demo pages will live in demos/<name>/. -->
+      <!-- One .project block per project. Each demo is its own page at the site root. -->
       <!-- DRAFT descriptions written from the paper titles only: please
            rewrite, then remove the "todo" spans to clear the highlight. -->
       <div class="project">
-        <!-- Replace with: <img class="thumb" src="images/shedding-light.png" alt=""> -->
-        <div class="thumb">figure</div>
+        <a href="images/pubs/shedding-light.jpg"><img class="thumb" src="images/pubs/shedding-light.jpg" alt="Reference and generated light probes compared by their estimated light direction"></a>
         <h3>Shedding Light</h3>
         <p><span class="todo">A benchmark for evaluating how well generative image models
         understand lighting. Add two or three sentences on what is measured and the main
         findings.</span></p>
         <p class="tags"><a href="https://doi.org/10.1145/3842579">[paper]</a>
-        ACM Transactions on Graphics, 2026 &middot; [demo &ndash; coming soon]</p>
+        <a href="https://lvsn.github.io/SheddingLight/">[project page]</a>
+        <a href="https://github.com/JustineGiroux/SheddingLightBenchmark">[code]</a>
+        <a href="shedding-light.html">[demo]</a>
+        &middot; ACM Transactions on Graphics, 2026</p>
       </div>
 
       <div class="project">
-        <div class="thumb">figure</div>
+        <a href="images/pubs/hdr-latent-diffusion.jpg"><img class="thumb" src="images/pubs/hdr-latent-diffusion.jpg" alt="Objects rendered under estimated indoor and outdoor environment maps"></a>
+        <h3>HDR Environment Maps with Latent Diffusion</h3>
+        <p><span class="todo">HDR environment map estimation using latent diffusion models.
+        Add two or three sentences on the approach and results.</span></p>
+        <p class="tags"><a href="https://arxiv.org/abs/2507.21261">[paper]</a>
+        arXiv preprint, 2025 &middot; [demo &ndash; coming soon]</p>
+      </div>
+
+      <div class="project">
+        <a href="images/pubs/360u-former.jpg"><img class="thumb" src="images/pubs/360u-former.jpg" alt="Objects rendered with 360U-Former and ground-truth environment maps, beside the environment maps themselves"></a>
         <h3>360U-Former</h3>
         <p><span class="todo">HDR illumination estimation using vision transformers adapted
         to 360&deg; panoramas. Add two or three sentences on the approach and
@@ -67,7 +79,7 @@
       </div>
 
       <div class="project">
-        <div class="thumb">figure</div>
+        <a href="images/pubs/hdr-outpainting.jpg"><img class="thumb" src="images/pubs/hdr-outpainting.jpg" alt="A limited field-of-view image, its placement in a panorama, and the outpainted panorama"></a>
         <h3>HDR Illumination Outpainting</h3>
         <p><span class="todo">A two-stage GAN that outpaints an HDR illumination map from a
         partial view. Add two or three sentences on the approach and results.</span></p>

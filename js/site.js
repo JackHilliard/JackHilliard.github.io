@@ -21,7 +21,12 @@
       links.push("<details><summary>[bibtex]</summary><pre>" + esc(p.bibtex) + "</pre></details>");
     }
 
-    return '<li><span class="num">[' + num + "]</span>" +
+    var fig = p.figure
+      ? '<a class="pub-fig" href="' + esc(p.figure) + '"><img src="' + esc(p.figure) +
+        '" alt="' + esc(p.figureAlt || "") + '" loading="lazy"></a>'
+      : "";
+
+    return '<li><span class="num">[' + num + "]</span>" + fig +
       '<span class="pub-title">' + esc(p.title) + "</span><br>" +
       authors + "<br>" +
       '<span class="pub-venue">' + esc(p.venue) + "</span>, " + esc(p.year) +
